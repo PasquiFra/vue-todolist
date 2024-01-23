@@ -59,11 +59,12 @@
                     </li>
                 </ul>
                 <div class="text-center" v-show="!todos.length">Non hai nulla da fare al momento...</div>
-                <form action="">
-                    <ul class="list-group">
-                        <li class="list-group-item" >
-                            <input id="add-todo" type="text" placeholder="...Aggiungimi qualcosa" 
-                            @keyup="addTodo">
+                <form @submit="onSubmit">
+                    <ul id="add-group" class="list-group">
+                        <li class="list-group-item d-flex" >
+                            <input id="add-todo" type="text" placeholder="...Aggiungi qualcosa" 
+                            @keyup.enter="addTodo" v-model.trim="newTodo" required>
+                            <button type="button" @click="addTodo" class="btn btn-success">Fatto</button>
                         </li>
                     </ul>
                 </form>

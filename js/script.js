@@ -7,6 +7,7 @@ const app = createApp ({
     data () {
         return {
             todos,
+            newTodo: "",
         }
     },
     methods: {
@@ -15,6 +16,22 @@ const app = createApp ({
         },
         deleteText (id) {
             this.todos = this.todos.filter(todo => id !== todo.id)
+        },
+        addTodo () {
+            if(!this.newTodo.trim()){
+                return
+            } 
+            const newTodo = {
+                id: new Date().toISOString(),
+                done: false,
+                text: this.newTodo,
+            }
+            this.todos.push(newTodo);
+            this.newTodo = "";
+            console.table(todos)
+        },
+        onSubmit(e) {
+            e.preventDefault();
         }
     }
 })

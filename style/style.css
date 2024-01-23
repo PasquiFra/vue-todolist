@@ -42,11 +42,19 @@ li i.fa-trash-can:hover {
     width: 100%;
     height: 100%;
 
-    margin: 0;
+    margin: 8px 16px;
     padding: 0;
     border: none;
 }
 #add-todo:focus-visible {
     outline: none;
     border-color: #ccc;
+}
+
+#add-group li.list-group-item{
+    margin-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
 }
