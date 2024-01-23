@@ -13,9 +13,9 @@ const app = createApp ({
         toggleClass(i) {
             this.todos[i].done = !this.todos[i].done;
         },
-        // deleteText () {
-        //     this.todos.filter()
-        // }
+        deleteText (id) {
+            this.todos = this.todos.filter(todo => id !== todo.id)
+        }
     }
 })
 

@@ -46,20 +46,27 @@
 
                 <ul class="list-group">
                     <li v-for="(todo, i) in todos" class="list-group-item d-flex justify-content-between">
-                        <span :class="{ 'text-decoration-line-through': todos[i].done }">
+                        <span :class="{ 'text-decoration-line-through': todo.done }">
                             {{todo.text}}
                         </span> 
                         <span>
                             <i role="button" class="fa-regular fa-circle-check"
-                            :class="{'bg-green rounded-circle': todos[i].done }" 
+                            :class="{'bg-green rounded-circle': todo.done}" 
                             @click="toggleClass(i)"></i>
                             <i role="button" class="fa-solid fa-trash-can"
-                            v-on:click="deleteText"></i>
+                            v-on:click="deleteText(todo.id)"></i>
                         </span>
                     </li>
-                    
                 </ul>
-
+                <div class="text-center" v-show="!todos.length">Non hai nulla da fare al momento...</div>
+                <form action="">
+                    <ul class="list-group">
+                        <li class="list-group-item" >
+                            <input id="add-todo" type="text" placeholder="...Aggiungimi qualcosa" 
+                            @keyup="addTodo">
+                        </li>
+                    </ul>
+                </form>
             </main>
 
 
