@@ -30,7 +30,7 @@ const app = createApp ({
             this.newTodo = "";
             console.table(todos)
         },
-        onSubmit(e) {
+        onSubmit(e) { 
             e.preventDefault();
         }
     }
