@@ -28,6 +28,7 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         
         <!--! Javascript -->
+        <script src="./js/data.js" ></script>
         <script src="./js/script.js" defer></script>
     </head>
 
@@ -44,11 +45,19 @@
             <main>
 
                 <ul class="list-group">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <li v-for="(todo, i) in todos" class="list-group-item d-flex justify-content-between">
+                        <span :class="{ 'text-decoration-line-through': todos[i].done }">
+                            {{todo.text}}
+                        </span> 
+                        <span>
+                            <i role="button" class="fa-regular fa-circle-check"
+                            :class="{'bg-green rounded-circle': todos[i].done }" 
+                            @click="toggleClass(i)"></i>
+                            <i role="button" class="fa-solid fa-trash-can"
+                            v-on:click="deleteText"></i>
+                        </span>
+                    </li>
+                    
                 </ul>
 
             </main>

@@ -6,12 +6,17 @@ const app = createApp ({
     name: "ToDoList",
     data () {
         return {
-            message: "Questo messaggio è stato scritto su Javascript"
+            todos,
         }
     },
-    /*methods: {
-    
-    }*/
+    methods: {
+        toggleClass(i) {
+            this.todos[i].done = !this.todos[i].done;
+        },
+        // deleteText () {
+        //     this.todos.filter()
+        // }
+    }
 })
 
 app.mount("#root");
