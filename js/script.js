@@ -2,25 +2,28 @@ console.log("Vue ok", Vue);
 
 const { createApp } = Vue;
 
-const app = createApp ({
+const app = createApp({
     name: "ToDoList",
-    data () {
+    data() {
         return {
             todos,
             newTodo: "",
         }
     },
     methods: {
+        // toggle da fare/fatto
         toggleClass(i) {
             this.todos[i].done = !this.todos[i].done;
         },
-        deleteText (id) {
+        //delete task
+        deleteText(id) {
             this.todos = this.todos.filter(todo => id !== todo.id)
         },
-        addTodo () {
-            if(!this.newTodo.trim()){
+        //add task function
+        addTodo() {
+            if (!this.newTodo.trim()) {
                 return
-            } 
+            }
             const newTodo = {
                 id: new Date().toISOString(),
                 done: false,
@@ -30,7 +33,8 @@ const app = createApp ({
             this.newTodo = "";
             console.table(todos)
         },
-        onSubmit(e) { 
+        //prevent default form
+        onSubmit(e) {
             e.preventDefault();
         }
     }
